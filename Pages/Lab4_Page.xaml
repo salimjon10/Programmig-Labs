@@ -1,0 +1,281 @@
+﻿<Page x:Class="Programing_Labs.Pages.Lab4_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Programing_Labs.Pages"
+      mc:Ignorable="d"
+      d:DesignHeight="450"
+      d:DesignWidth="800"
+      Title="Lab4_Page"
+      Loaded="Page_Loaded">
+
+    <DockPanel>
+        <!--Вверхный панел для имя задачи-->
+        <Label Content="Метод наименьших квадратов"
+               DockPanel.Dock="Top"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="22"
+               Foreground="White"
+               FontWeight="Bold" />
+        <!--Нижный панель-->
+
+        <Menu Height="auto"
+              VerticalAlignment="Top"
+              Background="Transparent"
+              DockPanel.Dock="Top">
+            <!--TextBoxXi-->
+            <MenuItem x:Name="MenuItemXi"
+                      Visibility="Visible">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Top">
+                        <Label x:Name="LabelXi"
+                               Content="Xi ="
+                               Style="{StaticResource LabelStyle}"
+                               FontWeight="Bold"
+                               Foreground="White"
+                               FontSize="18"
+                               VerticalAlignment="Top">
+                        </Label>
+                        <TextBox x:Name="TextBoxXi"
+                                 Style="{StaticResource TextBoxStyle}"
+                                 FontSize="18"
+                                 Margin="0,-5,0,0"
+                                 TabIndex="0" />
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
+            <!--TextBoxYi-->
+            <MenuItem x:Name="MenuItemYi"
+                      Visibility="Visible">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Top">
+                        <Label x:Name="LabelYi"
+                               Content="Yi ="
+                               Style="{StaticResource LabelStyle}"
+                               FontWeight="Bold"
+                               Foreground="White"
+                               FontSize="18"
+                               VerticalAlignment="Top" />
+                        <TextBox x:Name="TextBoxYi"
+                                 Style="{StaticResource TextBoxStyle}"
+                                 FontSize="18"
+                                 Margin="0,-5,0,0"
+                                 TabIndex="1" />
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
+            <!--TextBoxN-->
+            <MenuItem x:Name="MenuItemN">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Top">
+                        <Label x:Name="LblN"
+                               Content="n ="
+                               Style="{StaticResource LabelStyle}"
+                               FontWeight="Bold"
+                               Foreground="White"
+                               FontSize="18"
+                               VerticalAlignment="Top" />
+                        <TextBox x:Name="TextBoxN"
+                                 Style="{StaticResource TextBoxStyle}"
+                                 FontSize="18"
+                                 Margin="0,-5,0,0"
+                                 TabIndex="1" />
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem x:Name="MenuItemFill"
+                Background="#007575"
+                TabIndex="4"
+                Margin="0,2"
+                Visibility="Visible">
+                <MenuItem.Header>
+                    <Label Content="Заполнить"
+                        Style="{StaticResource LabelStyle}"
+                        Foreground="White"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        VerticalAlignment="Center" />
+
+                </MenuItem.Header>
+                <MenuItem Header="Вручную"
+                    FontWeight="Black"
+                    x:Name="MenuItem_FillManually"
+                    FontSize="16"
+                    Foreground="#007575"
+                    Background="Transparent"
+                    Click="MenuItem_FillManually_Click"
+                           />
+                <MenuItem Header="Рандомно"
+                    FontWeight="Black"
+                    x:Name="MenuItem_RandomGenerate"
+                    FontSize="16"
+                    Foreground="#007575"
+                    Background="Transparent"
+                    Click="MenuItem_RandomGenerate_Click"
+                           />
+            </MenuItem>
+            <MenuItem x:Name="MenuItemNext">
+                <MenuItem.Header>
+                    <Button x:Name="BtnNext"
+                            Style="{StaticResource ButtonStyle}"
+                            FontSize="16"
+                            Content="Далее"
+                            Height="44"
+                            Width="auto"
+                            FontWeight="Bold"
+                            Click="BtnNext_Click" />
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem x:Name="MenuItemEdit"
+                      Visibility="Collapsed">
+                <MenuItem.Header>
+                    <Button x:Name="BtnEdit"
+                            Style="{StaticResource ButtonStyle}"
+                            FontSize="16"
+                            Content="Изменить"
+                            Height="44"
+                            Width="auto"
+                            FontWeight="Bold"
+                            Click="BtnEdit_Click" />
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem Name="MenuItemBack"
+                      Visibility="Visible">
+                <MenuItem.Header>
+                    <Button x:Name="BtnBack"
+      
+                            Style="{StaticResource ButtonStyle}"
+                            FontSize="16"
+                            Content="Назад"
+                            Height="44"
+                            Width="auto"
+                            FontWeight="Bold"
+                            Click="BtnBack_Click" />
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem x:Name="MenuItemAdd">
+                <MenuItem.Header>
+                    <Button x:Name="BtnAdd"
+                            Style="{StaticResource ButtonStyle}"
+                            FontSize="16"
+                            Content="Добавить"
+                            Height="44"
+                            Width="auto"
+                            FontWeight="Bold"
+                            Click="BtnAdd_Click" />
+                </MenuItem.Header>
+            </MenuItem>
+            <!--Рассчитать-->
+            <MenuItem x:Name="MenuItemSolveOperation"
+                      Background="#007575"
+                      TabIndex="4"
+                      Margin="2"
+                      Visibility="Visible">
+                <MenuItem.Header>
+                    <Label Content="Рассчитать"
+                           Style="{StaticResource LabelStyle}"
+                           Foreground="White"
+                           FontSize="16"
+                           VerticalAlignment="Center" />
+
+                </MenuItem.Header>
+                <MenuItem Header="Линейная функция"
+                          FontWeight="Black"
+                          x:Name="MenuItemSolveLinear"
+                          FontSize="16"
+                          Foreground="#007575"
+                          Background="Transparent"
+                          Click="MenuItemSolveLinear_Click"
+                           />
+                <MenuItem Header="Квадратичная функция"
+                          x:Name="MenuItemSolveKvadratical"
+                          FontWeight="Black"
+                          FontSize="16"
+                          Foreground="#007575"
+                          Background="Transparent"
+                          Click="MenuItemSolveKvadratical_Click"
+                           />
+
+            </MenuItem>
+
+            <!--Очистить-->
+            <MenuItem x:Name="MenuItemClearOpetations"
+                      Background="#007575"
+                      TabIndex="4"
+                      Margin="2"
+                      Visibility="Visible">
+                <MenuItem.Header>
+                    <Label Content="Очистить"
+                           Style="{StaticResource LabelStyle}"
+                           Foreground="White"
+                           FontSize="16"
+                           VerticalAlignment="Center" />
+
+                </MenuItem.Header>
+                <MenuItem Header="Очистить все"
+                          FontWeight="Black"
+                          x:Name="MenuItemClearAll"
+                          FontSize="16"
+                          Foreground="#007575"
+                          Background="Transparent"
+                          Click="MenuItemClearAll_Click"
+                          TabIndex="5" />
+                <MenuItem Header="Очистить график"
+                          x:Name="MenuItemClearPlot"
+                          FontWeight="Black"
+                          FontSize="16"
+                          Foreground="#007575"
+                          Background="Transparent"
+                          Click="MenuItemClearPlot_Click"
+                          TabIndex="6" />
+                <MenuItem Header="Очистить данные"
+                          x:Name="MenuItemClearData"
+                          FontWeight="Black"
+                          FontSize="16"
+                          Foreground="#007575"
+                          Background="Transparent"
+                          Click="MenuItemClearData_Click"
+                          TabIndex="6" />
+
+            </MenuItem>
+
+        </Menu>
+        <Grid Background="Transparent">
+            <ListView Name="GraphicPointList"
+                      FontSize="18"
+                      Margin="0,0,5,0">
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Удалить"
+                                  x:Name="Remove"
+                                  Click="Remove_Click" />
+                        <MenuItem Header="Редактировать"
+                                  x:Name="Edit"
+                                  Click="Edit_Click" />
+                    </ContextMenu>
+                </ListView.ContextMenu>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Index}"
+                                        Width="50">i</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Xi}"
+                                        Width="50">X</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Yi}"
+                                        Width="50">Y</GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <!--Plot для графика-->
+        <WpfPlot x:Name="WpfPlot1"
+                 Height="auto"
+                 Width="auto"
+                 DockPanel.Dock="Right" />
+
+    </DockPanel>
+</Page>
